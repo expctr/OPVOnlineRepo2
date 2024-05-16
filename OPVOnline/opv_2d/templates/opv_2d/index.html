@@ -1,0 +1,290 @@
+<!-- Это файл с версткой страницы 2D визуализации. -->
+
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="csrf-token" content="{{ csrf_token }}">
+    <title>OPV 2D</title>
+
+    {% load static %}
+    <link rel='stylesheet' href="{% static 'opv_2d/css/index.css' %}">
+</head>
+
+<body>
+    <div class="main-wrapper">
+        <div class="header-div">
+            <!-- <p id="main-p" style="margin-left: 60px;"><a id="main-href" href="/">GelioGeos</a></p> -->
+            <a id="main-href" href="/">GelioGeos</a>
+        </div>
+
+        <div class="header-div">
+            <h1 id="title-h1" style="margin-bottom: 5px">Ovation Prime Визуализатор 2D</h1>
+        </div>
+
+        <div class="left-div">
+            <div style="margin-bottom: 5px">
+                Дата и время файла (в UTC):
+            </div>
+
+            <div style="margin-bottom: 5px">
+                <input id="datetime-input" style="width: 297px;" type="datetime-local">
+                <!--                <button id="go-to-file-by-datetime" style="width: 130px; font-size: 10px; height: 21px">-->
+                <!--                    Выбрать дату и время-->
+                <!--                </button>-->
+            </div>
+
+            <div style="margin-bottom: 5px">
+                <button id="go-to-previous-file-button" style="width: 146px;">Предыдущий файл</button>
+                <button id="go-to-next-file-button" style="width: 146px">Следующий файл</button>
+            </div>
+
+            <div style="margin-bottom: 5px">
+                <button id="additional-file-info-button">Дополнительная информация о файле</button>
+            </div>
+
+            <div style="margin-bottom: 5px">
+                <label id="file-number-label">Номер файла</label>
+                <input id="current-file-number-input" style="width: 90px" readonly="readonly">
+                <label id="from-label">из</label>
+                <input id="files-number-input" style="width: 90px" readonly="readonly">
+            </div>
+
+            <div style="margin-bottom: 5px">
+                <label id="file-name-label">Имя файла:</label>
+                <input id="file-name-input" style="width: 296px; font-size: 10px;" readonly="readonly">
+            </div>
+
+            <div style="margin-bottom: 5px">
+                <button id="go-to-certain-file-button" style="width: 202px">Перейти к файлу</button>
+                <input id="go-to-certain-file-input" style="width: 90px">
+            </div>
+
+            <!-- <div style="margin-bottom: 5px">
+                <label>Изображение можно перемещать с помощью левой кнопки мыши.</label>
+            </div> -->
+
+            <!-- <div style="margin-bottom: 5px">
+                <label>Информацию о фрагментах изображения можно просматривать с помощью правой кнопки мыши.</label>
+            </div> -->
+
+            <!-- <div style="margin-bottom: 5px">
+                <label>Размер изображения можно менять с помощью колесика мыши.</label>
+            </div> -->
+
+            <div style="margin-bottom: 5px">
+                <button id="default-offset-and-sizes-button" style="width: 296px">Сдвиг и размер по умолчанию</button>
+            </div>
+
+            <div style="margin-bottom: 5px">
+                <button id="change-color-indicator-visibility-button" style="width: 296px">
+                    Показать цветовую шкалу
+                </button>
+            </div>
+
+            <fieldset style="margin-bottom: 5px">
+                <legend>Полусфера:</legend>
+                <div>
+                    <input type="radio" id="north-radio" name="horizon-side-type" value="north" />
+                    <label for="north-radio">North</label>
+
+                    <input type="radio" id="south-radio" name="horizon-side-type" value="south" />
+                    <label for="south-radio">South</label>
+                </div>
+            </fieldset>
+
+            <fieldset style="margin-bottom: 5px">
+                <legend>Прогноз / набдюдение:</legend>
+                <div>
+                    <input type="radio" id="nowcast-radio" name="cast-type" value="nowcast" />
+                    <label for="nowcast-radio">Nowcast</label>
+
+                    <input type="radio" id="forecast-radio" name="cast-type" value="forecast" />
+                    <label for="forecast-radio">Forecast</label>
+
+                    <input type="radio" id="second-forecast-radio" name="cast-type" value="second-forecast" />
+                    <label for="second-forecast-radio">Forecast 2</label>
+                </div>
+            </fieldset>
+
+            <fieldset style="margin-bottom: 5px">
+                <legend>Тип излучения:</legend>
+                <div>
+                    <div>
+                        <input type="radio" id="diffuse-radio" name="radiation-type" value="diffuse" />
+                        <label for="diffuse-radio">Diffuse</label>
+                    </div>
+
+                    <div>
+                        <input type="radio" id="ions-radio" name="radiation-type" value="ions" />
+                        <label for="ions-radio">Ions</label>
+                    </div>
+
+                    <div>
+                        <input type="radio" id="mono-radio" name="radiation-type" value="mono" />
+                        <label for="mono-radio">Mono</label>
+                    </div>
+
+                    <div>
+                        <input type="radio" id="wave-radio" name="radiation-type" value="wave" />
+                        <label for="wave-radio">Wave</label>
+                    </div>
+
+                    <div>
+                        <input type="radio" id="total-radio" name="radiation-type" value="total" />
+                        <label for="total-radio">Total</label>
+                    </div>
+                </div>
+            </fieldset>
+
+            <div style="margin-bottom: 5px">
+                <label style="font-size: 14px">Предельное значение цветовой шкалы:</label>
+                <input id="color-indicator-limit-input" style="width: 60px" />
+            </div>
+
+            <div style="margin-bottom: 5px">
+                <input type="checkbox" id="show-heatmap-checkbox">
+                <label for="show-heatmap-checkbox">Отображать тепловую карту</label>
+            </div>
+
+            <div style="margin-bottom: 5px">
+                <input type="checkbox" id="show-margin-checkbox">
+                <label for="show-margin-checkbox">Отображать границу</label>
+            </div>
+
+            <div style="margin-bottom: 5px">
+                <input type="checkbox" id="smooth-margin-checkbox">
+                <label for="smooth-margin-checkbox">Гладкая граница</label>
+            </div>
+
+            <div style="margin-bottom: 5px">
+                <label>Уровень границы:</label>
+                <input id="margin-level-input" style="width: 60px">
+            </div>
+
+            <div style="margin-bottom: 5px">
+                <input type="checkbox" id="show-day-night-checkbox">
+                <label for="show-day-night-checkbox">Отображать день/ночь</label>
+            </div>
+
+            <div style="margin-bottom: 5px">
+                <input type="checkbox" id="cloudiness-checkbox">
+                <label for="cloudiness-checkbox">Отображать облачность</label>
+            </div>
+
+            <!-- <div style="margin-bottom: 5px;">
+                Отображение облачности может существенно замедлить работу сайта.
+                Если облачность не отображается, значит соответствующие данные
+                отсутствуют.
+            </div> -->
+
+            <div style="margin-bottom: 5px">
+                <input type="checkbox" id="denoise-checkbox">
+                <label for="denoise-checkbox">Фильтровать шум</label>
+            </div>
+
+            <div style="margin-bottom: 5px">
+                <input type="checkbox" id="continents-checkbox">
+                <label for="continents-checkbox">Отображать континенты</label>
+            </div>
+
+            <div style="margin-bottom: 5px">
+                <input type="checkbox" id="cities-checkbox">
+                <label for="cities-checkbox">Отображать города</label>
+            </div>
+
+            <!-- <div style="margin-bottom: 5px">
+                <input type="checkbox" id="extended-functionality-1-checkbox" style="display: none;">
+                <label for="extended-functionality-1-checkbox" style="display: none;">Отображать зоны видимости
+                    РЛС</label>
+            </div> -->
+
+            <!-- <div style="margin-bottom: 5px">
+                <div id="hint-div"
+                    title="Изображение можно перемещать с помощью левой кнопки мыши. Информацию о фрагментах изображения можно просматривать с помощью правой кнопки мыши. Размер изображения можно менять с помощью колесика мыши. Отображение облачности может существенно замедлить работу сайта. Если облачность не отображается, значит соответствующие данные отсутствуют.">
+                    Наведите курсор для получения справки.
+                </div>
+            </div> -->
+        </div>
+
+        <div class="right-div">
+            <canvas id="visualization-canvas" class="visualization-canvas"></canvas>
+            <canvas id="color-indicator-canvas" class="color-indicator-canvas"></canvas>
+            <input id="file-number-range-input" class="file-number-range-input" type="range" min="0" max="100" step="1"
+                value="50">
+        </div>
+    </div>
+</body>
+
+</html>
+
+<script src="{% static 'opv_2d/js/unpkg.com_leaflet@1.9.4_dist_leaflet-src.js' %}"></script>
+<script src="{% static 'opv_2d/js/unpkg.com_@joergdietrich_leaflet.terminator@1.0.0_L.Terminator.js' %}"></script>
+<script src="{% static 'opv_2d/js/jquery-3.7.0.min.js' %}"></script>
+<!-- <script src="{% static 'opv_2d/js/cuon-utils.js' %}"></script>
+<script src="{% static 'opv_2d/js/webgl-debug.js' %}"></script>
+<script src="{% static 'opv_2d/js/webgl-utils.js' %}"></script> -->
+
+
+<script src="{% static 'opv_2d/js/view/color.js' %}"></script>
+<script src="{% static 'opv_2d/js/view/composite/graphical-objects/background.js' %}"></script>
+<script src="{% static 'opv_2d/js/view/composite/graphical-objects/broken-line.js' %}"></script>
+<script src="{% static 'opv_2d/js/view/composite/graphical-objects/circle.js' %}"></script>
+<script src="{% static 'opv_2d/js/view/composite/graphical-objects/graphical-segment.js' %}"></script>
+<script src="{% static 'opv_2d/js/view/composite/graphical-objects/image-object.js' %}"></script>
+<script src="{% static 'opv_2d/js/view/composite/graphical-objects/label.js' %}"></script>
+<script src="{% static 'opv_2d/js/view/composite/graphical-objects/polygon.js' %}"></script>
+<script src="{% static 'opv_2d/js/view/composite/graphical-objects/tetragon.js' %}"></script>
+<script src="{% static 'opv_2d/js/view/composite/graphical-component.js' %}"></script>
+<script src="{% static 'opv_2d/js/view/composite/graphical-composite.js' %}"></script>
+
+<script src="{% static 'opv_2d/js/view/builder/minor-builders/background-builder.js' %}"></script>
+<script src="{% static 'opv_2d/js/view/builder/minor-builders/broken-margin-builder.js' %}"></script>
+<script src="{% static 'opv_2d/js/view/builder/minor-builders/cities-builder.js' %}"></script>
+<script src="{% static 'opv_2d/js/view/builder/minor-builders/cloudiness-builder.js' %}"></script>
+<script src="{% static 'opv_2d/js/view/builder/minor-builders/color-indicator-builder.js' %}"></script>
+<script src="{% static 'opv_2d/js/view/builder/minor-builders/continents-and-ocean-builder.js' %}"></script>
+<script src="{% static 'opv_2d/js/view/builder/minor-builders/continents-borders-builder.js' %}"></script>
+<script src="{% static 'opv_2d/js/view/builder/minor-builders/geoinformation-data-units-builder.js' %}"></script>
+<script src="{% static 'opv_2d/js/view/builder/minor-builders/geoinformation-unit-info-label-builder.js' %}"></script>
+<script src="{% static 'opv_2d/js/view/builder/minor-builders/smooth-margin-builder.js' %}"></script>
+<script src="{% static 'opv_2d/js/view/builder/minor-builders/terminator-builder.js' %}"></script>
+<script src="{% static 'opv_2d/js/view/builder/minor-builders/thick-grid-circles-builder.js' %}"></script>
+<script src="{% static 'opv_2d/js/view/builder/minor-builders/thick-grid-circles-labels-builder.js' %}"></script>
+<script src="{% static 'opv_2d/js/view/builder/minor-builders/thick-grid-lines-builder.js' %}"></script>
+<script src="{% static 'opv_2d/js/view/builder/minor-builders/thick-grid-lines-labels-builder.js' %}"></script>
+<script src="{% static 'opv_2d/js/view/builder/minor-builders/thin-grid-circles-builder.js' %}"></script>
+<script src="{% static 'opv_2d/js/view/builder/minor-builders/thin-grid-lines-builder.js' %}"></script>
+<script src="{% static 'opv_2d/js/view/builder/builder.js' %}"></script>
+<script src="{% static 'opv_2d/js/view/builder/concrete-builder.js' %}"></script>
+<script src="{% static 'opv_2d/js/view/builder/director.js' %}"></script>
+<script src="{% static 'opv_2d/js/view/geometry/coordinate-adapter.js' %}"></script>
+<script src="{% static 'opv_2d/js/view/geometry/coordinate-system.js' %}"></script>
+<script src="{% static 'opv_2d/js/view/geometry/named-point-polar.js' %}"></script>
+<script src="{% static 'opv_2d/js/view/geometry/point-polar.js' %}"></script>
+<script src="{% static 'opv_2d/js/view/geometry/point.js' %}"></script>
+<script src="{% static 'opv_2d/js/view/geometry/radius-vector.js' %}"></script>
+<script src="{% static 'opv_2d/js/view/geometry/rectangle.js' %}"></script>
+<script src="{% static 'opv_2d/js/view/visitor/visitor.js' %}"></script>
+<script src="{% static 'opv_2d/js/view/display.js' %}"></script>
+<script src="{% static 'opv_2d/js/view/drawing-command.js' %}"></script>
+<script src="{% static 'opv_2d/js/view/drawing-manager.js' %}"></script>
+<script src="{% static 'opv_2d/js/view/view.js' %}"></script>
+
+<script src="{% static 'opv_2d/js/model/cast-type.js' %}"></script>
+<script src="{% static 'opv_2d/js/model/file-type.js' %}"></script>
+<script src="{% static 'opv_2d/js/model/cloudiness-cell.js' %}"></script>
+<script src="{% static 'opv_2d/js/model/geoinformation-data-unit.js' %}"></script>
+<script src="{% static 'opv_2d/js/model/horizon-side-type.js' %}"></script>
+<script src="{% static 'opv_2d/js/model/radiation-type.js' %}"></script>
+<script src="{% static 'opv_2d/js/model/model.js' %}"></script>
+<script src="{% static 'opv_2d/js/model/segment-orientation.js' %}"></script>
+<script src="{% static 'opv_2d/js/model/segment.js' %}"></script>
+
+<script src="{% static 'opv_2d/js/controller/controller.js' %}"></script>
+<script src="{% static 'opv_2d/js/controller/file-selection-manager.js' %}"></script>
+<script src="{% static 'opv_2d/js/controller/options.js' %}"></script>
+
+<script src="{% static 'opv_2d/js/index.js' %}"></script>

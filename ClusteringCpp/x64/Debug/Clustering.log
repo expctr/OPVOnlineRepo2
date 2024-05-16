@@ -1,0 +1,8 @@
+﻿  Clustering.cpp
+C:\Coding\final-qualifying-work_2023-2024\ClusteringCpp\Clustering.cpp(134,15): warning C4244: аргумент: преобразование "time_t" в "unsigned int", возможна потеря данных
+  clustering-node-util.cpp
+  kmeans-clustering-util.cpp
+  self-organising-kohonen-network.cpp
+C:\Coding\final-qualifying-work_2023-2024\ClusteringCpp\self-organising-kohonen-network.cpp(60,5): warning C4267: инициализация: преобразование из "size_t" в "int"; возможна потеря данных
+  Создание кода...
+  Clustering.vcxproj -> C:\Coding\final-qualifying-work_2023-2024\ClusteringCpp\x64\Debug\Clustering.exe

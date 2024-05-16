@@ -1,0 +1,361 @@
+------------------------------------------------------
+msd kmeans 60 0.1 20.txt
+---do_investigations. cluster index : 0---
+***TRAIN***:
+correlation related to cluster centre: 0.89
+r2 score related to cluster centre: 0.79
+***VALIDATION***:
+correlation related to cluster centre: 0.91
+r2 score related to cluster centre: 0.82
+***TEST***:
+correlation related to cluster centre: 0.87
+r2 score related to cluster centre: 0.76
+***VALIDATION***:
+average correlation val: 0.90
+average r2 val: 0.74
+***TEST***:
+average correlation test: 0.87
+average r2 test: 0.76
+---do_investigations. cluster index : 1---
+***TRAIN***:
+correlation related to cluster centre: 0.90
+r2 score related to cluster centre: 0.81
+***VALIDATION***:
+correlation related to cluster centre: 0.92
+r2 score related to cluster centre: 0.83
+***TEST***:
+correlation related to cluster centre: 0.89
+r2 score related to cluster centre: 0.79
+***VALIDATION***:
+average correlation val: 0.90
+average r2 val: 0.77
+***TEST***:
+average correlation test: 0.88
+average r2 test: 0.74
+---do_investigations. cluster index : 2---
+***TRAIN***:
+correlation related to cluster centre: 0.90
+r2 score related to cluster centre: 0.80
+***VALIDATION***:
+correlation related to cluster centre: 0.90
+r2 score related to cluster centre: 0.81
+***TEST***:
+correlation related to cluster centre: 0.89
+r2 score related to cluster centre: 0.78
+***VALIDATION***:
+average correlation val: 0.90
+average r2 val: 0.80
+***TEST***:
+average correlation test: 0.88
+average r2 test: 0.77
+---do_investigations. cluster index : 3---
+***TRAIN***:
+correlation related to cluster centre: 0.89
+r2 score related to cluster centre: 0.80
+***VALIDATION***:
+correlation related to cluster centre: 0.90
+r2 score related to cluster centre: 0.81
+***TEST***:
+correlation related to cluster centre: 0.89
+r2 score related to cluster centre: 0.79
+***VALIDATION***:
+average correlation val: 0.90
+average r2 val: 0.80
+***TEST***:
+average correlation test: 0.88
+average r2 test: 0.78
+---do_investigations. cluster index : 4---
+***TRAIN***:
+correlation related to cluster centre: 0.89
+r2 score related to cluster centre: 0.79
+***VALIDATION***:
+correlation related to cluster centre: 0.90
+r2 score related to cluster centre: 0.81
+***TEST***:
+correlation related to cluster centre: 0.88
+r2 score related to cluster centre: 0.78
+***VALIDATION***:
+average correlation val: 0.90
+average r2 val: 0.80
+***TEST***:
+average correlation test: 0.88
+average r2 test: 0.78
+---do_investigations. cluster index : 5---
+***TRAIN***:
+correlation related to cluster centre: 0.89
+r2 score related to cluster centre: 0.80
+***VALIDATION***:
+correlation related to cluster centre: 0.90
+r2 score related to cluster centre: 0.81
+***TEST***:
+correlation related to cluster centre: 0.89
+r2 score related to cluster centre: 0.79
+***VALIDATION***:
+average correlation val: 0.88
+average r2 val: 0.77
+***TEST***:
+average correlation test: 0.88
+average r2 test: 0.76
+---do_investigations. cluster index : 6---
+***TRAIN***:
+correlation related to cluster centre: 0.89
+r2 score related to cluster centre: 0.80
+***VALIDATION***:
+correlation related to cluster centre: 0.91
+r2 score related to cluster centre: 0.82
+***TEST***:
+correlation related to cluster centre: 0.88
+r2 score related to cluster centre: 0.78
+***VALIDATION***:
+average correlation val: 0.91
+average r2 val: 0.81
+***TEST***:
+average correlation test: 0.88
+average r2 test: 0.77
+---do_investigations. cluster index : 7---
+***TRAIN***:
+correlation related to cluster centre: 0.98
+r2 score related to cluster centre: 0.97
+***VALIDATION***:
+correlation related to cluster centre: 0.98
+r2 score related to cluster centre: 0.95
+***TEST***:
+correlation related to cluster centre: 0.93
+r2 score related to cluster centre: 0.87
+***VALIDATION***:
+average correlation val: 0.90
+average r2 val: 0.78
+***TEST***:
+average correlation test: 0.86
+average r2 test: 0.71
+---do_investigations. cluster index : 8---
+***TRAIN***:
+correlation related to cluster centre: 0.89
+r2 score related to cluster centre: 0.80
+***VALIDATION***:
+correlation related to cluster centre: 0.91
+r2 score related to cluster centre: 0.82
+***TEST***:
+correlation related to cluster centre: 0.88
+r2 score related to cluster centre: 0.78
+***VALIDATION***:
+average correlation val: 0.90
+average r2 val: 0.82
+***TEST***:
+average correlation test: 0.88
+average r2 test: 0.78
+---do_investigations. cluster index : 9---
+***TRAIN***:
+correlation related to cluster centre: 0.89
+r2 score related to cluster centre: 0.80
+***VALIDATION***:
+correlation related to cluster centre: 0.90
+r2 score related to cluster centre: 0.81
+***TEST***:
+correlation related to cluster centre: 0.88
+r2 score related to cluster centre: 0.78
+***VALIDATION***:
+average correlation val: 0.90
+average r2 val: 0.80
+***TEST***:
+average correlation test: 0.88
+average r2 test: 0.76
+---do_investigations. cluster index : 10---
+***TRAIN***:
+correlation related to cluster centre: 0.90
+r2 score related to cluster centre: 0.81
+***VALIDATION***:
+correlation related to cluster centre: 0.91
+r2 score related to cluster centre: 0.83
+***TEST***:
+correlation related to cluster centre: 0.88
+r2 score related to cluster centre: 0.77
+***VALIDATION***:
+average correlation val: 0.91
+average r2 val: 0.83
+***TEST***:
+average correlation test: 0.88
+average r2 test: 0.77
+---do_investigations. cluster index : 11---
+***TRAIN***:
+correlation related to cluster centre: 0.90
+r2 score related to cluster centre: 0.81
+***VALIDATION***:
+correlation related to cluster centre: 0.91
+r2 score related to cluster centre: 0.83
+***TEST***:
+correlation related to cluster centre: 0.88
+r2 score related to cluster centre: 0.77
+***VALIDATION***:
+average correlation val: 0.91
+average r2 val: 0.75
+***TEST***:
+average correlation test: 0.88
+average r2 test: 0.71
+---do_investigations. cluster index : 12---
+***TRAIN***:
+correlation related to cluster centre: 0.97
+r2 score related to cluster centre: 0.93
+***VALIDATION***:
+correlation related to cluster centre: 0.94
+r2 score related to cluster centre: 0.87
+***TEST***:
+correlation related to cluster centre: 0.92
+r2 score related to cluster centre: 0.84
+***VALIDATION***:
+average correlation val: nan
+average r2 val: -70455886015538100613152768.00
+***TEST***:
+average correlation test: nan
+average r2 test: -914489254428927735975903232.00
+---do_investigations. cluster index : 13---
+***TRAIN***:
+correlation related to cluster centre: 0.89
+r2 score related to cluster centre: 0.80
+***VALIDATION***:
+correlation related to cluster centre: 0.90
+r2 score related to cluster centre: 0.81
+***TEST***:
+correlation related to cluster centre: 0.89
+r2 score related to cluster centre: 0.79
+***VALIDATION***:
+average correlation val: 0.90
+average r2 val: 0.81
+***TEST***:
+average correlation test: 0.89
+average r2 test: 0.78
+---do_investigations. cluster index : 14---
+***TRAIN***:
+correlation related to cluster centre: 0.90
+r2 score related to cluster centre: 0.80
+***VALIDATION***:
+correlation related to cluster centre: 0.91
+r2 score related to cluster centre: 0.82
+***TEST***:
+correlation related to cluster centre: 0.87
+r2 score related to cluster centre: 0.76
+***VALIDATION***:
+average correlation val: 0.91
+average r2 val: 0.82
+***TEST***:
+average correlation test: 0.87
+average r2 test: 0.76
+---do_investigations. cluster index : 15---
+***TRAIN***:
+correlation related to cluster centre: 0.90
+r2 score related to cluster centre: 0.80
+***VALIDATION***:
+correlation related to cluster centre: 0.90
+r2 score related to cluster centre: 0.81
+***TEST***:
+correlation related to cluster centre: 0.89
+r2 score related to cluster centre: 0.79
+***VALIDATION***:
+average correlation val: 0.89
+average r2 val: 0.79
+***TEST***:
+average correlation test: 0.88
+average r2 test: 0.77
+---do_investigations. cluster index : 16---
+***TRAIN***:
+correlation related to cluster centre: 0.90
+r2 score related to cluster centre: 0.82
+***VALIDATION***:
+correlation related to cluster centre: 0.91
+r2 score related to cluster centre: 0.83
+***TEST***:
+correlation related to cluster centre: 0.89
+r2 score related to cluster centre: 0.79
+***VALIDATION***:
+average correlation val: 0.92
+average r2 val: 0.81
+***TEST***:
+average correlation test: 0.89
+average r2 test: 0.70
+---do_investigations. cluster index : 17---
+***TRAIN***:
+correlation related to cluster centre: 0.99
+r2 score related to cluster centre: 0.98
+***VALIDATION***:
+correlation related to cluster centre: 0.97
+r2 score related to cluster centre: 0.93
+***TEST***:
+correlation related to cluster centre: 0.97
+r2 score related to cluster centre: 0.93
+***VALIDATION***:
+average correlation val: 0.89
+average r2 val: 0.79
+***TEST***:
+average correlation test: 0.86
+average r2 test: 0.72
+---do_investigations. cluster index : 18---
+***TRAIN***:
+correlation related to cluster centre: 0.92
+r2 score related to cluster centre: 0.84
+***VALIDATION***:
+correlation related to cluster centre: 0.92
+r2 score related to cluster centre: 0.85
+***TEST***:
+correlation related to cluster centre: 0.89
+r2 score related to cluster centre: 0.79
+***VALIDATION***:
+average correlation val: 0.90
+average r2 val: 0.79
+***TEST***:
+average correlation test: 0.87
+average r2 test: 0.74
+---do_investigations. cluster index : 19---
+***TRAIN***:
+correlation related to cluster centre: 0.90
+r2 score related to cluster centre: 0.81
+***VALIDATION***:
+correlation related to cluster centre: 0.91
+r2 score related to cluster centre: 0.83
+***TEST***:
+correlation related to cluster centre: 0.88
+r2 score related to cluster centre: 0.77
+***VALIDATION***:
+average correlation val: 0.91
+average r2 val: 0.79
+***TEST***:
+average correlation test: 0.89
+average r2 test: 0.73
+---do_investigations. cluster index : 20---
+***TRAIN***:
+correlation related to cluster centre: 0.97
+r2 score related to cluster centre: 0.94
+***VALIDATION***:
+correlation related to cluster centre: 0.93
+r2 score related to cluster centre: 0.86
+***TEST***:
+correlation related to cluster centre: 0.94
+r2 score related to cluster centre: 0.87
+***VALIDATION***:
+average correlation val: nan
+average r2 val: -241252313002295628348260352.00
+***TEST***:
+average correlation test: nan
+average r2 test: -883811259034118683562606592.00
+---do_investigations. cluster index : 21---
+***TRAIN***:
+correlation related to cluster centre: 0.89
+r2 score related to cluster centre: 0.77
+***VALIDATION***:
+correlation related to cluster centre: 0.90
+r2 score related to cluster centre: 0.77
+***TEST***:
+correlation related to cluster centre: 0.88
+r2 score related to cluster centre: 0.76
+***VALIDATION***:
+average correlation val: 0.90
+average r2 val: 0.76
+***TEST***:
+average correlation test: 0.88
+average r2 test: 0.75
+weighted_average_correlation_val: 0.90
+weighted_average_r2_score_val: 0.79
+weighted_average_correlation_test: 0.88
+weighted_average_r2_score_test: 0.75
+bad clusters rate: 0.50
+bad cluster indices: [12, 20]
+------------------------------------------------------

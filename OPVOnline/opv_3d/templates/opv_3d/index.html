@@ -1,0 +1,219 @@
+<!-- Это файл с версткой страницы 3D визуализации. -->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Ovation Prime Визуализатор 3D</title>
+
+    {% load static %}
+    <link rel='stylesheet' href="{% static 'opv_3d/css/index.css' %}">
+
+    {% load static %}
+    <!-- <script src="{% static 'opv_3d/js/Cesium.js' %}"></script> -->
+    <script src="https://cesium.com/downloads/cesiumjs/releases/1.82/Build/Cesium/Cesium.js"></script>
+
+    {% load static %}
+    <link href="https://cesium.com/downloads/cesiumjs/releases/1.82/Build/Cesium/Widgets/widgets.css" rel="stylesheet">
+
+    <!-- <link rel='stylesheet' href="{% static 'opv_3d/css/widgets.css' %}"> -->
+</head>
+
+<body>
+    <div class="main-wrapper">
+        <a id="main-href" href="/">GelioGeos</a>
+
+        <div class="header-div">
+            <h1 id="title-h1" style="margin-bottom: 5px">Ovation Prime Визуализатор 3D</h1>
+        </div>
+
+        <div class="left-div">
+            <div style="margin-bottom: 5px">
+                <div style="margin-bottom: 5px">
+                    Дата и время файла (в UTC):
+                </div>
+
+                <input id="datetime-input" type="datetime-local">
+                <!-- <button id="go-to-file-by-datetime" style="width: 130px; font-size: 10px; height: 21px">
+                    Выбрать дату и время
+                </button> -->
+            </div>
+
+            <div style="margin-bottom: 5px">
+                <button id="go-to-previous-file-button" style="width: 146px;">Предыдущий файл</button>
+                <button id="go-to-next-file-button" style="width: 146px">Следующий файл</button>
+            </div>
+
+            <div style="margin-bottom: 5px">
+                <button id="additional-file-info-button">Дополнительная информация о файле</button>
+            </div>
+
+            <div style="margin-bottom: 5px">
+                <label id="file-number-label">Номер файла</label>
+                <input id="current-file-number-input" style="width: 90px" readonly="readonly">
+                <label id="from-label">из</label>
+                <input id="files-number-input" style="width: 90px" readonly="readonly">
+            </div>
+
+            <div style="margin-bottom: 5px">
+                <label id="file-name-label">Имя файла:</label>
+                <input id="file-name-input" style="width: 296px; font-size: 10px;" readonly="readonly">
+            </div>
+
+            <div style="margin-bottom: 5px">
+                <button id="go-to-certain-file-button" style="width: 202px">Перейти к файлу</button>
+                <input id="go-to-certain-file-input" style="width: 90px">
+            </div>
+
+            <div style="margin-bottom: 5px">
+                <button id="change-color-indicator-visibility-button">
+                    Показать цветовую шкалу
+                </button>
+            </div>
+
+            <fieldset style="margin-bottom: 5px">
+                <legend>Полусфера:</legend>
+                <div>
+                    <input type="radio" id="north-radio" name="horizon-side-type" value="north" />
+                    <label for="north-radio">North</label>
+
+                    <input type="radio" id="south-radio" name="horizon-side-type" value="south" />
+                    <label for="south-radio">South</label>
+                </div>
+            </fieldset>
+
+            <fieldset style="margin-bottom: 5px">
+                <legend>Прогноз / набдюдение:</legend>
+                <div>
+                    <input type="radio" id="nowcast-radio" name="cast-type" value="nowcast" />
+                    <label for="nowcast-radio">Nowcast</label>
+
+                    <input type="radio" id="forecast-radio" name="cast-type" value="forecast" />
+                    <label for="forecast-radio">Forecast</label>
+
+                    <input type="radio" id="second-forecast-radio" name="cast-type" value="second-forecast" />
+                    <label for="second-forecast-radio">Forecast 2</label>
+                </div>
+            </fieldset>
+
+            <fieldset style="margin-bottom: 5px">
+                <legend>Тип излучения:</legend>
+                <div>
+                    <div>
+                        <input type="radio" id="diffuse-radio" name="radiation-type" value="diffuse" />
+                        <label for="diffuse-radio">Diffuse</label>
+                    </div>
+
+                    <div>
+                        <input type="radio" id="ions-radio" name="radiation-type" value="ions" />
+                        <label for="ions-radio">Ions</label>
+                    </div>
+
+                    <div>
+                        <input type="radio" id="mono-radio" name="radiation-type" value="mono" />
+                        <label for="mono-radio">Mono</label>
+                    </div>
+
+                    <div>
+                        <input type="radio" id="wave-radio" name="radiation-type" value="wave" />
+                        <label for="wave-radio">Wave</label>
+                    </div>
+
+                    <div>
+                        <input type="radio" id="total-radio" name="radiation-type" value="total" />
+                        <label for="total-radio">Total</label>
+                    </div>
+                </div>
+            </fieldset>
+
+            <div style="margin-bottom: 5px">
+                <label style="font-size: 14px">Предельное значение цветовой шкалы:</label>
+                <input id="color-indicator-limit-input" style="width: 60px" />
+            </div>
+
+            <div style="margin-bottom: 5px;">
+                <input type="checkbox" id="marks-checkbox">
+                <!-- <label for="marks-checkbox">Отображать маркеры</label> -->
+            </div>
+
+            <div style="margin-bottom: 5px">
+                <input type="checkbox" id="show-heatmap-checkbox">
+                <label for="show-heatmap-checkbox">Отображать тепловую карту</label>
+            </div>
+
+            <div style="margin-bottom: 5px">
+                <input type="checkbox" id="show-margin-checkbox">
+                <label for="show-margin-checkbox">Отображать границу</label>
+            </div>
+
+            <div style="margin-bottom: 5px">
+                <input type="checkbox" id="smooth-margin-checkbox">
+                <label for="smooth-margin-checkbox">Гладкая граница</label>
+            </div>
+
+            <div style="margin-bottom: 5px">
+                <label>Уровень границы:</label>
+                <input id="margin-level-input" style="width: 60px">
+            </div>
+
+            <div style="margin-bottom: 5px">
+                <input type="checkbox" id="show-day-night-checkbox">
+                <label for="show-day-night-checkbox">Отображать день/ночь</label>
+            </div>
+
+            <!-- <div style="margin-bottom: 5px">
+                <input type="checkbox" id="cloudiness-checkbox">
+                <label for="cloudiness-checkbox">Отображать облачность</label>
+            </div> -->
+
+            <div style="margin-bottom: 5px">
+                <input type="checkbox" id="denoise-checkbox">
+                <label for="denoise-checkbox">Фильтровать шум</label>
+            </div>
+        </div>
+
+        <div class="right-div">
+            <div id="cesiumContainer" class="fullSize"></div>
+            <script>
+                // Get your token from https://cesium.com/ion/tokens
+                Cesium.Ion.defaultAccessToken = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJqdGkiOiIyZjU5MjVhMS04ZDliLTRjNDQtYmU3Zi0yZTcxZmNhNzNmNjciLCJpZCI6MTg3MjUxLCJpYXQiOjE3MDQxMTcyOTd9.8aFJ8Ewwty6B1caGSq4uRcFLvYAgJu0fyu4XfZUM2nw';
+                // const viewer = new Cesium.Viewer('cesiumContainer');
+            </script>
+            <canvas id="color-indicator-canvas" class="color-indicator-canvas"></canvas>
+
+            <input id="file-number-range-input" class="file-number-range-input" type="range" min="0" max="100" step="1"
+                value="50">
+        </div>
+    </div>
+</body>
+
+</html>
+
+<script src="{% static 'opv_3d/js/jquery-3.7.0.min.js' %}"></script>
+
+<script src="{% static 'opv_3d/js/unpkg.com_leaflet@1.9.4_dist_leaflet-src.js' %}"></script>
+<script src="{% static 'opv_3d/js/unpkg.com_@joergdietrich_leaflet.terminator@1.0.0_L.Terminator.js' %}"></script>
+
+<script src="{% static 'opv_3d/js/view/point-on-sphere.js' %}"></script>
+<script src="{% static 'opv_3d/js/view/color.js' %}"></script>
+<script src="{% static 'opv_3d/js/view/rectangle.js' %}"></script>
+<script src="{% static 'opv_3d/js/view/coordinate-system.js' %}"></script>
+<script src="{% static 'opv_3d/js/view/coordinate-adapter.js' %}"></script>
+<script src="{% static 'opv_3d/js/view/display.js' %}"></script>
+<script src="{% static 'opv_3d/js/view/view.js' %}"></script>
+
+<script src="{% static 'opv_3d/js/model/segment-orientation.js' %}"></script>
+<script src="{% static 'opv_3d/js/model/segment-on-sphere.js' %}"></script>
+<script src="{% static 'opv_3d/js/model/cast-type.js' %}"></script>
+<script src="{% static 'opv_3d/js/model/horizon-side-type.js' %}"></script>
+<script src="{% static 'opv_3d/js/model/radiation-type.js' %}"></script>
+<script src="{% static 'opv_3d/js/model/file-type.js' %}"></script>
+<script src="{% static 'opv_3d/js/model/ovation-prime-data-3d-unit.js' %}"></script>
+<script src="{% static 'opv_3d/js/model/model.js' %}"></script>
+
+<script src="{% static 'opv_3d/js/controller/controller.js' %}"></script>
+<script src="{% static 'opv_3d/js/controller/file-selection-manager.js' %}"></script>
+<script src="{% static 'opv_3d/js/controller/options.js' %}"></script>
+
+<script src="{% static 'opv_3d/js/index.js' %}"></script>

@@ -1,0 +1,85 @@
+/* В данном файле содержится описание стилей для страницы для 3D визуализации. */
+
+* {
+    box-sizing: border-box;
+}
+
+.main-wrapper {
+    position: relative;
+    width: 1000px;
+    margin: 0 auto;
+    height: 700px;
+}
+
+.header-div {
+    width: 100%;
+}
+
+.left-div {
+    position: relative;
+    left: 0;
+    width: 300px;
+}
+
+.right-div {
+    position: absolute;
+    left: 300px;
+    top: 70px;
+    width: 70%;
+    height: 70%;
+}
+
+#cesiumContainer {
+    position: absolute;
+    top: 0%;
+    /* left: 120px; */
+    /* width: 578px; */
+    left: 120px;
+    width: 578px;
+    height: 461px;
+}
+
+#file-number-range-input {
+    position: absolute;
+    top: 94%;
+    left: 0%;
+    width: 100%;
+}
+
+#additional-file-info-button {
+    width: 296px;
+}
+
+#change-color-indicator-visibility-button {
+    width: 296px;
+}
+
+.color-indicator-canvas {
+    position: absolute;
+    top: 0%;
+    left: 0%;
+    width: 120px;
+    height: 461px;
+    /* height: 800px; */
+}
+
+#datetime-input {
+    width: 297px;
+}
+
+#main-href {
+    position: relative;
+    color: black;
+    font-size: 32px;
+    margin-left: 0;
+    left: 0;
+    text-align: left;
+    /* background-color: blue; */
+    margin-bottom: 0;
+}
+
+#title-h1 {
+    margin-top: 0;
+    font-size: 24px;
+    /* background-color: aqua; */
+}

@@ -1,0 +1,39 @@
+/* Это файл со стилями для галвной страницы. */
+
+* {
+    box-sizing: border-box;
+}
+
+#main-wrapper {
+    position: relative;
+    width: 320px;
+    margin: 200px auto;
+    height: 170px;
+    border: 2px solid black;
+    border-radius: 10px 10px 10px 10px;
+    padding-left: 5px;
+    box-shadow: 5px 5px 5px black;
+}
+
+#opv-h1 {
+    text-decoration: underline;
+    text-align: center;
+    width: 100%;
+}
+
+#two-d-a {
+    color: black;
+    font-size: 16px;
+    display: block;
+    margin-bottom: 10px;
+    text-align: center;
+    width: 100%;
+}
+
+#three-d-a {
+    color: black;
+    font-size: 16px;
+    display: block;
+    text-align: center;
+    width: 100%;
+}
