@@ -1,4 +1,8 @@
 "use strict";
+/*
+ * В данном файле содержится реализация графического объекта, который соответствует
+ * кругу.
+ */
 class Circle {
     constructor(x1, y1, x2, y2, color, fill, lineWidth) {
         this.x1 = x1;

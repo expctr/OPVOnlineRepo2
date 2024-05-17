@@ -1,4 +1,8 @@
 "use strict";
+/*
+ * В данном файле содержится реализация класса, который соответствует точек в полярной
+ * системе координат. Приче у такой точки есть имя.
+ */
 class NamedPointPolar {
     constructor(name, polarDistance, polarAngle) {
         this.name = '';

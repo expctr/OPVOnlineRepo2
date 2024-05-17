@@ -467,6 +467,12 @@ class Controller {
             = fileType?.castType == CastType.SECOND_FORECAST
         this.fileNumberRangeInput.disabled
             = fileType?.castType == CastType.SECOND_FORECAST
+
+        this.southRadio.disabled = fileType?.castType == CastType.SECOND_FORECAST
+        this.ionsRadio.disabled = fileType?.castType == CastType.SECOND_FORECAST
+        this.monoRadio.disabled = fileType?.castType == CastType.SECOND_FORECAST
+        this.waveRadio.disabled = fileType?.castType == CastType.SECOND_FORECAST
+        this.totalRadio.disabled = fileType?.castType == CastType.SECOND_FORECAST
     }
 
     public saveOptions(): void {

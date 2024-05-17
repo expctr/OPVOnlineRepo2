@@ -1,4 +1,8 @@
 "use strict";
+/*
+ * В данном файле содержится реализация класса, который соответствует фрагменту 3D
+ * визуализации и хранит инсформацию об интенсивности солнечного ветра.
+ */
 class OvationPrimeData3DUnit {
     constructor(firstPointLat, firstPointLon, secondPointLat, secondPointLon, thirdPointLat, thirdPointLon, fourthPointLat, fourthPointLon, height, value, firstPointMlt, firstPointMagneticLat) {
         this.firstPointLat = 0;

@@ -1,4 +1,8 @@
 "use strict";
+/*
+ * В данном файле содержится реализация графического объекта, который соответствует
+ * отрезку.
+ */
 class GraphicalSegment {
     constructor(lineWidth, color, x1, y1, x2, y2) {
         this.lineWidth = lineWidth;

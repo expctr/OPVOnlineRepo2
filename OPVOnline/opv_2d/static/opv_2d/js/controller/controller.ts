@@ -168,7 +168,7 @@ class Controller {
 
 	private readonly citiesCheckbox: HTMLInputElement
 
-	private readonly extendedFunctionality1Checkbox: HTMLInputElement
+	// private readonly extendedFunctionality1Checkbox: HTMLInputElement
 
 	private readonly fileSelectionManager: FileSelectionManager
 
@@ -230,8 +230,7 @@ class Controller {
 		denoiseCheckbox: HTMLInputElement,
 		continentsCheckbox: HTMLInputElement,
 		additionalFileInfoButton: HTMLButtonElement,
-		citiesCheckbox: HTMLInputElement,
-		extendedFunctionality1Checkbox: HTMLInputElement
+		citiesCheckbox: HTMLInputElement
 	) {
 		this.view = view
 		this.model = model
@@ -266,7 +265,7 @@ class Controller {
 		this.continentsCheckbox = continentsCheckbox
 		this.additionalFileInfoButton = additionalFileInfoButton
 		this.citiesCheckbox = citiesCheckbox
-		this.extendedFunctionality1Checkbox = extendedFunctionality1Checkbox
+		// this.extendedFunctionality1Checkbox = extendedFunctionality1Checkbox
 		this.fileSelectionManager = new FileSelectionManager(model)
 	}
 
@@ -498,9 +497,9 @@ class Controller {
 			}
 		})
 
-		this.extendedFunctionality1Checkbox.addEventListener('change', () => {
-			this.visualize(true, null)
-		})
+		// this.extendedFunctionality1Checkbox.addEventListener('change', () => {
+		// 	this.visualize(true, null)
+		// })
 
 		this.additionalFileInfoButton.addEventListener('click', () => {
 			let fileNumberLabel = <HTMLInputElement>document.getElementById("file-number-label")
@@ -838,6 +837,12 @@ class Controller {
 			= fileType?.castType == CastType.SECOND_FORECAST
 		this.fileNumberRangeInput.disabled
 			= fileType?.castType == CastType.SECOND_FORECAST
+
+		this.southRadio.disabled = fileType?.castType == CastType.SECOND_FORECAST
+		this.ionsRadio.disabled = fileType?.castType == CastType.SECOND_FORECAST
+		this.monoRadio.disabled = fileType?.castType == CastType.SECOND_FORECAST
+		this.waveRadio.disabled = fileType?.castType == CastType.SECOND_FORECAST
+		this.totalRadio.disabled = fileType?.castType == CastType.SECOND_FORECAST
 	}
 
 	public saveOptions(): void {

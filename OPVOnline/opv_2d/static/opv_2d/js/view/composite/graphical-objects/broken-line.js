@@ -1,4 +1,8 @@
 "use strict";
+/*
+ * В данном файле содержится реализация графического объекта, который соответствует
+ * ломаной линии.
+ */
 class BrokenLine {
     constructor(fill, lineWidth, color, points) {
         this.lineWidth = lineWidth;

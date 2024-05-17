@@ -80,7 +80,7 @@ def get_file_type_index(filename: str) -> int | None:
                 return DataType.SOUTH_NOWCAST_WAVE
             else:
                 return DataType.SOUTH_NOWCAST_TOTAL
-    return None
+    return -1
 
 
 def get_file_datetime(filename: str) -> str:
@@ -258,7 +258,9 @@ def do_source_traversal(directory: str):
         elif filename.endswith('.txt'):
             file_type_index = get_file_type_index(filename)
 
-            if file_type_index:
+            # print(f"file_type_index: {file_type_index}")
+
+            if file_type_index != -1:
                 file_datetime = get_datetime_from_str(get_file_datetime(filename))
 
                 if (files_last_record_datetime_marks[file_type_index] is None \
@@ -279,4 +281,4 @@ def do_coordinates_manager_iteration():
     do_source_traversal(OVATION_PRIME_DATA_ROOT)
 
 
-# do_coordinates_manager_iteration()
+do_coordinates_manager_iteration()

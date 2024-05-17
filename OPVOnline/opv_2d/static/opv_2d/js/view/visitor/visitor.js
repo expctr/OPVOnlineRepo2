@@ -1,4 +1,8 @@
 "use strict";
+/*
+ * В данном файле содержится реализация класса, который соответствует посетителю в
+ * паттерне Visitor.
+ */
 class Visitor {
     constructor(context, display) {
         this.context = context;

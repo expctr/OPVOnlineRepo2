@@ -110,6 +110,7 @@ def make_record_in_database(path: str, filename: str):
     :return: None
     """
     file_type_index = get_file_type_index(filename)
+    # print(f"file_type_index: \'{file_type_index}\'")
 
     if file_type_index == -1:
         return
@@ -121,6 +122,9 @@ def make_record_in_database(path: str, filename: str):
 
     # if file_is_short(path):
     #     return
+
+    # if file_type_index == DataType.NORTH_FORECAST_DIFFUSE:
+    #     print(path)
 
     cur.execute(f"INSERT INTO {database_tables_names[file_type_index]}(datetime, path)" +
                 f"VALUES('{datetime}', '{path}');")
@@ -233,4 +237,4 @@ def do_second_database_manager_iteration():
     do_files_traversal(SECOND_OVATION_PRIME_DATA_ROOT)
 
 
-# do_second_database_manager_iteration()
+do_second_database_manager_iteration()

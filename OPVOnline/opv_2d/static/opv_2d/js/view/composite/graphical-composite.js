@@ -1,4 +1,8 @@
 "use strict";
+/*
+ * В данном файле содержится реализация интерфейса, который соответсвтует компоненте
+ * в паттерне Composite.
+ */
 class GraphicalComposite {
     constructor() {
         this.components = [];

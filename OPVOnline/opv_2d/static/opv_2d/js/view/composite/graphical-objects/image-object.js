@@ -1,4 +1,8 @@
 "use strict";
+/*
+ * В данном файле содержится реализация графического объекта, который соответствует
+ * картинке.
+ */
 class ImageObject {
     constructor(image, dx, dy, dWidth, dHeight, rotationAngle, imageOnloadListener) {
         this.dx = dx;

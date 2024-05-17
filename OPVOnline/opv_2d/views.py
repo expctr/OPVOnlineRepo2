@@ -1331,8 +1331,8 @@ class ExtendedFunctionality1ResponseUtil(View):
 class TotalMltRotationAngleResponseUtil(View):
     def get(self, request):
         _datetime = get_datetime_from_str(request.GET['dateTime'])
-        print('Orange')
-        print(request.GET)
+        # print('Orange')
+        # print(request.GET)
         horizon_side = request.GET['horizonSide']
         geographic_lat_lon = [55.4424 if horizon_side == 'north' else -55.4424, 37.3636]
         _, mlt = convert_coordinates_from_geographic_to_geomagnetic(

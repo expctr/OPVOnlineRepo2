@@ -1,4 +1,8 @@
 "use strict";
+/*
+* В данном файле содержится реализация класса для конструирования графического объекта, который
+* отвечает за сглаженную границу аврорального овала.
+*/
 class SmoothMarginBuilder {
     constructor() {
         this.graphicalComposite = new GraphicalComposite();

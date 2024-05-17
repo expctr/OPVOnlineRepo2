@@ -1,4 +1,7 @@
 "use strict";
+/*
+ * Это главный файл, который отвечает за работу страницы 3D визуализации.
+ */
 window.onload = () => {
     let marksCheckbox = document.getElementById('marks-checkbox');
     let northRadio = document.getElementById('north-radio');

@@ -1,7 +1,7 @@
 "use strict";
 /*
  * В данном файле содержится реализация модели для
- * паттерна MVC.
+ * паттерна MVC для управления страницей 2D визуализации.
  */
 /**
  * Модель для паттерна MVC.
@@ -32,7 +32,7 @@ class Model {
      * @param totalRadio флажок для выбора данных об общем вкладе авроральных компонент.
      * @param fileNumberRangeInput ползунок для выбора номера файла.
      */
-    constructor(view, currentFileNumberInput, filesNumberInput, fileNameInput, datetimeInput, northRadio, southRadio, forecastRadio, nowcastRadio, secondForecastRadio, diffuseRadio, ionsRadio, monoRadio, waveRadio, totalRadio, showDayNightCheckBox, cloudinessCheckBox, denoiseCheckbox, continentsCheckbox, fileNumberRangeInput, citiesCheckbox, extendedFunctionality1Checkbox) {
+    constructor(view, currentFileNumberInput, filesNumberInput, fileNameInput, datetimeInput, northRadio, southRadio, forecastRadio, nowcastRadio, secondForecastRadio, diffuseRadio, ionsRadio, monoRadio, waveRadio, totalRadio, showDayNightCheckBox, cloudinessCheckBox, denoiseCheckbox, continentsCheckbox, fileNumberRangeInput, citiesCheckbox) {
         /**
          * Общее число файлов выбранного типа.
          */
@@ -74,6 +74,7 @@ class Model {
         this.cloudinessCellsGeomagneticCoordinates = null;
         this.cloudinessCellsValues = null;
         this.cloudinessDatetimeRepresentation = null;
+        // private readonly extendedFunctionality1Checkbox: HTMLInputElement
         this.cloudinessImageSrc = null;
         this.cloudinessMltRotationAngle = 0;
         /**
@@ -481,7 +482,7 @@ class Model {
         this.continentsCheckbox = continentsCheckbox;
         this.fileNumberRangeInput = fileNumberRangeInput;
         this.citiesCheckbox = citiesCheckbox;
-        this.extendedFunctionality1Checkbox = extendedFunctionality1Checkbox;
+        // this.extendedFunctionality1Checkbox = extendedFunctionality1Checkbox
     }
     parseCloudinessCellsGeomagneticCoordinates(cloudinessCellsGeomagneticCoordinatesData) {
         if (cloudinessCellsGeomagneticCoordinatesData.length == 0) {
@@ -1023,38 +1024,41 @@ class Model {
         // console.log(cities)
         return cities;
     }
-    parseExtendedFunctionalityClass1Array(description) {
-        let extendedFunctionalityClass1Array = [];
-        let splitDescription = description.split('\n').filter(element => element);
-        for (let i = 0; i < splitDescription.length; ++i) {
-            extendedFunctionalityClass1Array
-                .push(ExtendedFunctionalityClass1.parse(splitDescription[i]));
-        }
-        return extendedFunctionalityClass1Array;
-    }
-    getExtendedFunctionality1Info() {
-        if (!this.extendedFunctionality1Checkbox.checked) {
-            return null;
-        }
-        let description = '';
-        $.ajax({
-            url: '2d/extended-functionality-1',
-            method: 'get',
-            dataType: 'json',
-            async: false,
-            data: {
-                dateTime: this.datetimeInput.value,
-                hemisphere: (this.northRadio.checked) ? 'north' : 'south'
-            },
-            success: function (response) {
-                description = response.description;
-            },
-            error: function (response) {
-                alert('Ошибка при попытке получить данные расширенного функционала первого типа.');
-            },
-        });
-        return this.parseExtendedFunctionalityClass1Array(description);
-    }
+    // public parseExtendedFunctionalityClass1Array(
+    // 	description: string): ExtendedFunctionalityClass1[] {
+    // 	let extendedFunctionalityClass1Array
+    // 		: ExtendedFunctionalityClass1[] = []
+    // 	let splitDescription = description.split('\n').filter(element => element)
+    // 	for (let i = 0; i < splitDescription.length; ++i) {
+    // 		extendedFunctionalityClass1Array
+    // 			.push(ExtendedFunctionalityClass1.parse(
+    // 				splitDescription[i]))
+    // 	}
+    // 	return extendedFunctionalityClass1Array
+    // }
+    // public getExtendedFunctionality1Info(): ExtendedFunctionalityClass1[] | null {
+    // 	if (!this.extendedFunctionality1Checkbox.checked) {
+    // 		return null
+    // 	}
+    // 	let description = ''
+    // 	$.ajax({
+    // 		url: '2d/extended-functionality-1',
+    // 		method: 'get',
+    // 		dataType: 'json',
+    // 		async: false,
+    // 		data: {
+    // 			dateTime: this.datetimeInput.value,
+    // 			hemisphere: (this.northRadio.checked) ? 'north' : 'south'
+    // 		},
+    // 		success: function (response) {
+    // 			description = response.description
+    // 		},
+    // 		error: function (response) {
+    // 			alert('Ошибка при попытке получить данные расширенного функционала первого типа.')
+    // 		},
+    // 	})
+    // 	return this.parseExtendedFunctionalityClass1Array(description)
+    // }
     getSecondForecast() {
         let filesNumber = undefined;
         let data = undefined;
@@ -1116,7 +1120,7 @@ class Model {
                 totalMltRotationAngle = parseFloat(response.mltRotationAngle);
             },
             error: function (response) {
-                alert('Ошибка при попытке получить общий угол поворота аврорального овала.');
+                alert('Ошибка при попытке получить общий угол поворота изображения.');
             },
         });
         return totalMltRotationAngle;

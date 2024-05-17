@@ -1,4 +1,9 @@
 "use strict";
+/*
+* В данном файле содержится реализация класса для конструирования графического объекта, который
+* отвечает за надпись со сведениями о фрагменте визуализации с информацией об интенсивности
+* солнечного ветра.
+*/
 class GeoinformationDataUnitInfoLabelBuilder {
     constructor() {
         this.graphicalComposite = new GraphicalComposite();

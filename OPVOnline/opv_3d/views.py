@@ -402,10 +402,12 @@ class FilesNumberAndFileDataByDatetimeResponseUtil(View):
         cur = conn.cursor()
 
         # records = self.recordAccessDelegates[file_type_index]('datetime')
+        # print(f"file_type_index: {file_type_index}")
         cur.execute(f'SELECT path, datetime FROM {databaseTablesNames[file_type_index]};')
         input_file_datetime_str = request.GET['inputFileDateTime']
         input_file_date_time = get_datetime_from_str(input_file_datetime_str)
         records = cur.fetchall()
+        # print(f"records: \'{records}\'")
         min_timedelta_total_seconds \
             = abs((input_file_date_time - get_datetime_from_str(records[0][1])).total_seconds())
         searched_index = 0

@@ -1,4 +1,7 @@
 "use strict";
+/*
+ * Это главный файл, который отвечает за работу страницы 2D визуализации.
+ */
 window.onload = () => {
     /*
  * В данном файле содержится скрипт, запускающий программу.
@@ -120,7 +123,7 @@ window.onload = () => {
     let continentsCheckbox = document.getElementById('continents-checkbox');
     let additionalFileInfoButton = document.getElementById('additional-file-info-button');
     let citiesCheckbox = document.getElementById('cities-checkbox');
-    let extendedFunctionality1Checkbox = document.getElementById('extended-functionality-1-checkbox');
+    // let extendedFunctionality1Checkbox = <HTMLInputElement>document.getElementById('extended-functionality-1-checkbox')
     northRadio.checked = true;
     nowcastRadio.checked = true;
     totalRadio.checked = true;
@@ -142,12 +145,12 @@ window.onload = () => {
     /**
      * Модель для паттерна MVC.
      */
-    let model = new Model(view, currentFileNumberInput, filesNumberInput, fileNameInput, datetimeInput, northRadio, southRadio, forecastRadio, nowcastRadio, secondForecastRadio, diffuseRadio, ionsRadio, monoRadio, waveRadio, totalRadio, showDayNightCheckbox, cloudinessCheckBox, denoiseCheckbox, continentsCheckbox, fileNumberRangeInput, citiesCheckbox, extendedFunctionality1Checkbox);
+    let model = new Model(view, currentFileNumberInput, filesNumberInput, fileNameInput, datetimeInput, northRadio, southRadio, forecastRadio, nowcastRadio, secondForecastRadio, diffuseRadio, ionsRadio, monoRadio, waveRadio, totalRadio, showDayNightCheckbox, cloudinessCheckBox, denoiseCheckbox, continentsCheckbox, fileNumberRangeInput, citiesCheckbox);
     model.getFilesNumberAndLastFileData();
     /**
      * Контроллер для паттерна MVC.
      */
-    let controller = new Controller(view, model, gotoPreviousFileButton, gotoNextFileButton, gotoFileButton, gotoCertainFileInput, datetimeInput, defaultOffsetAndSizesButton, changeColorIndicatorCanvasVisibilityButton, northRadio, southRadio, forecastRadio, nowcastRadio, secondForecastRadio, diffuseRadio, ionsRadio, monoRadio, waveRadio, totalRadio, colorIndicatorLimitInput, showHeatmapCheckbox, showMarginCheckbox, smoothMarginCheckbox, fileNumberRangeInput, marginLevelInput, showDayNightCheckbox, cloudinessCheckBox, denoiseCheckbox, continentsCheckbox, additionalFileInfoButton, citiesCheckbox, extendedFunctionality1Checkbox);
+    let controller = new Controller(view, model, gotoPreviousFileButton, gotoNextFileButton, gotoFileButton, gotoCertainFileInput, datetimeInput, defaultOffsetAndSizesButton, changeColorIndicatorCanvasVisibilityButton, northRadio, southRadio, forecastRadio, nowcastRadio, secondForecastRadio, diffuseRadio, ionsRadio, monoRadio, waveRadio, totalRadio, colorIndicatorLimitInput, showHeatmapCheckbox, showMarginCheckbox, smoothMarginCheckbox, fileNumberRangeInput, marginLevelInput, showDayNightCheckbox, cloudinessCheckBox, denoiseCheckbox, continentsCheckbox, additionalFileInfoButton, citiesCheckbox);
     controller.addEventListeners();
     colorIndicatorLimitInput.value = GeoinformationDataUnit.maxValue.toString();
     marginLevelInput.value = model.marginLevel.toString();

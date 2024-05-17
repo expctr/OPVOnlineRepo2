@@ -1,4 +1,8 @@
 "use strict";
+/*
+ * В данном файле содержится реализация класса, который соответствует представлению из
+ * паттерна MVC и используется для управления страницей 3D визуализации.
+ */
 class View {
     constructor() {
         this.cesiumContainer = document.getElementById('cesiumContainer');

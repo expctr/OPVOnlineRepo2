@@ -1,4 +1,8 @@
 "use strict";
+/*
+* В данном файле содержится реализация класса для конструирования графического объекта, который
+* отвечает за континенты и океан.
+*/
 class ContinentsAndOceanBuilder {
     constructor() {
         this.graphicalComposite = new GraphicalComposite();

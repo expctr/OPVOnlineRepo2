@@ -1,4 +1,7 @@
 "use strict";
+/*
+ * В данном файле содержится реализация класса для управления рисованием.
+ */
 class DrawingManager {
     constructor(view) {
         this.commands = [];

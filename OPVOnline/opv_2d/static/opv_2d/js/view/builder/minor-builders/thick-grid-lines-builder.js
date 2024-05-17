@@ -1,4 +1,8 @@
 "use strict";
+/*
+* В данном файле содержится реализация класса для конструирования графического объекта, который
+* отвечает за толстые прямые линии координатной решетки.
+*/
 class ThickGridLinesBuilder {
     constructor() {
         this.graphicalComposite = new GraphicalComposite();

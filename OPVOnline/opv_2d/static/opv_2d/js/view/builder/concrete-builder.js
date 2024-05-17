@@ -1,4 +1,8 @@
 "use strict";
+/*
+ * В данном файле содержится реализация интерфейса, который соответствует строителю
+ * в паттерне Builder.
+ */
 class ConcreteBuilder {
     constructor() {
         this.graphicalComposite = new GraphicalComposite();

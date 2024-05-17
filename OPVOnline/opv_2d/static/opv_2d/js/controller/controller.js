@@ -1,7 +1,7 @@
 "use strict";
 /*
  * В данном файле содержится реализация контроллера для
- * паттерна MVC.
+ * паттерна MVC для управления страницей 2D визуализации.
  */
 /**
  * Контроллер для паттерна MVC.
@@ -35,7 +35,7 @@ class Controller {
      * @param fileNumberRangeInput ползунок для выбора номера файла.
      * @param marginLevelInput текстовое поле для отображения уровня границы.
      */
-    constructor(view, model, gotoPreviousFileButton, gotoNextFileButton, gotoFileButton, gotoCertainFileInput, datetimeInput, defaultOffsetAndSizesButton, changeColorIndicatorCanvasVisibilityButton, northRadio, southRadio, forecastRadio, nowcastRadio, secondForecastRadio, diffuseRadio, ionsRadio, monoRadio, waveRadio, totalRadio, colorIndicatorLimitInput, showHeatmapCheckBox, showMarginCheckBox, smoothMarginCheckBox, fileNumberRangeInput, marginLevelInput, showDayNightCheckBox, cloudinessCheckBox, denoiseCheckbox, continentsCheckbox, additionalFileInfoButton, citiesCheckbox, extendedFunctionality1Checkbox) {
+    constructor(view, model, gotoPreviousFileButton, gotoNextFileButton, gotoFileButton, gotoCertainFileInput, datetimeInput, defaultOffsetAndSizesButton, changeColorIndicatorCanvasVisibilityButton, northRadio, southRadio, forecastRadio, nowcastRadio, secondForecastRadio, diffuseRadio, ionsRadio, monoRadio, waveRadio, totalRadio, colorIndicatorLimitInput, showHeatmapCheckBox, showMarginCheckBox, smoothMarginCheckBox, fileNumberRangeInput, marginLevelInput, showDayNightCheckBox, cloudinessCheckBox, denoiseCheckbox, continentsCheckbox, additionalFileInfoButton, citiesCheckbox) {
         /**
          * Вспомогательная переменная с координатой x.
          */
@@ -272,7 +272,7 @@ class Controller {
         this.continentsCheckbox = continentsCheckbox;
         this.additionalFileInfoButton = additionalFileInfoButton;
         this.citiesCheckbox = citiesCheckbox;
-        this.extendedFunctionality1Checkbox = extendedFunctionality1Checkbox;
+        // this.extendedFunctionality1Checkbox = extendedFunctionality1Checkbox
         this.fileSelectionManager = new FileSelectionManager(model);
     }
     /**
@@ -517,9 +517,9 @@ class Controller {
                 this.saveOptions();
             }
         });
-        this.extendedFunctionality1Checkbox.addEventListener('change', () => {
-            this.visualize(true, null);
-        });
+        // this.extendedFunctionality1Checkbox.addEventListener('change', () => {
+        // 	this.visualize(true, null)
+        // })
         this.additionalFileInfoButton.addEventListener('click', () => {
             let fileNumberLabel = document.getElementById("file-number-label");
             let currentFileNumberInput = document.getElementById("current-file-number-input");
@@ -617,6 +617,11 @@ class Controller {
             = (fileType === null || fileType === void 0 ? void 0 : fileType.castType) == CastType.SECOND_FORECAST;
         this.fileNumberRangeInput.disabled
             = (fileType === null || fileType === void 0 ? void 0 : fileType.castType) == CastType.SECOND_FORECAST;
+        this.southRadio.disabled = (fileType === null || fileType === void 0 ? void 0 : fileType.castType) == CastType.SECOND_FORECAST;
+        this.ionsRadio.disabled = (fileType === null || fileType === void 0 ? void 0 : fileType.castType) == CastType.SECOND_FORECAST;
+        this.monoRadio.disabled = (fileType === null || fileType === void 0 ? void 0 : fileType.castType) == CastType.SECOND_FORECAST;
+        this.waveRadio.disabled = (fileType === null || fileType === void 0 ? void 0 : fileType.castType) == CastType.SECOND_FORECAST;
+        this.totalRadio.disabled = (fileType === null || fileType === void 0 ? void 0 : fileType.castType) == CastType.SECOND_FORECAST;
     }
     saveOptions() {
         this.options = new Options(this.datetimeInput.value, this.model.getFileTypeFromGUI(), parseFloat(this.colorIndicatorLimitInput.value), this.showHeatmapCheckBox.checked, this.showMarginCheckBox.checked, this.smoothMarginCheckBox.checked, parseFloat(this.marginLevelInput.value), this.showDayNightCheckBox.checked, this.cloudinessCheckBox.checked, this.denoiseCheckbox.checked, this.continentsCheckbox.checked, this.citiesCheckbox.checked);

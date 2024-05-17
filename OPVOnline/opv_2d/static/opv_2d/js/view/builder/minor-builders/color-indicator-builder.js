@@ -1,4 +1,8 @@
 "use strict";
+/*
+* В данном файле содержится реализация класса для конструирования графического объекта, который
+* отвечает за цветовой индикатор.
+*/
 class ColorIndicatorBuilder {
     constructor() {
         this.graphicalComposite = new GraphicalComposite();

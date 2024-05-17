@@ -89,10 +89,12 @@ def get_ts_last_three_values():
 
     paths = get_three_last_files_paths()
 
-    filename_0 = os.path.split(paths[0])
-    filename_1 = os.path.split(paths[1])
-    filename_2 = os.path.split(paths[2])
+    filename_0 = os.path.split(paths[0])[-1]
+    filename_1 = os.path.split(paths[1])[-1]
+    filename_2 = os.path.split(paths[2])[-1]
 
+    # print("hello")
+    # print(f"filename_0: {filename_0[-1]}")
     datetime_0 = get_datetime_from_str(get_file_datetime(filename_0))
     datetime_1 = get_datetime_from_str(get_file_datetime(filename_1))
     datetime_2 = get_datetime_from_str(get_file_datetime(filename_2))
@@ -258,15 +260,36 @@ def get_second_forecast_file_path(last_path):
 
     return second_forecast_file_name
 
-def get_second_forecast_file_path_3d(three_last_paths_util):
-    # second_forecast_file_name = f"north diffuse {get_second_forecast_datetime(three_last_paths_util)}.txt"
-    second_forecast_file_name = os.path.join("second-forecast-3d",
-                                             f"{get_second_forecast_datetime(three_last_paths_util)}"
-                                             f"_north_diffuse_energy-flux_aacgm_and_geographical.txt")
-    second_forecast_file_name \
-        = second_forecast_file_name.replace(":", "_")
 
-    return second_forecast_file_name
+# def get_second_forecast_file_path_3d(three_last_paths_util):
+#     # second_forecast_file_name = f"north diffuse {get_second_forecast_datetime(three_last_paths_util)}.txt"
+#     second_forecast_file_name = os.path.join("second-forecast-3d",
+#                                              f"{get_second_forecast_datetime(three_last_paths_util)}"
+#                                              f"_north_diffuse_energy-flux_aacgm_and_geographical.txt")
+#     second_forecast_file_name \
+#         = second_forecast_file_name.replace(":", "_")
+#
+#     return second_forecast_file_name
+
+def rreplace(s, old, new):
+    li = s.rsplit(old, 1) #Split only once
+    return new.join(li)
+
+def get_second_forecast_file_path_3d(forecast_path):
+    forecast_path = rreplace(forecast_path, 'aacgm', 'aacgm_and_geographical')
+    forecast_path = rreplace(forecast_path, 'second-forecast', 'second-forecast-3d')
+
+    return forecast_path
+    # split_forecast_path = os.path.split(forecast_path)
+    # # last_element = split_forecast_path[-1].replace('aacgm', 'aacgm_and_geographical')
+    # lst = []
+    #
+    # for cur in split_forecast_path:
+    #     lst.append(cur)
+    #
+    # lst[-1] = lst[-1].replace('aacgm', 'aacgm_and_geographical')
+    #
+    # return os.path.join(lst[0], lst[1])
 
 
 def get_datetime_from_str(datetime_str) -> dt.datetime:
@@ -275,6 +298,7 @@ def get_datetime_from_str(datetime_str) -> dt.datetime:
     :param datetime_str: строковое представление даты и времени.
     :return: упомянутые дата и время.
     """
+    # print(f"datetime_str: \'{datetime_str}\'")
     return dt.datetime(
         int(datetime_str[0:4]),
         int(datetime_str[5:7]),
@@ -308,7 +332,8 @@ def get_second_forecast_datetime(last_path):
 
 
 def get_second_forecast_for_cluster(clusters, cluster_index: int,
-                                    ts_last_three_values: list[tuple[float, float, float]]) -> list[tuple[float, float, float]]:
+                                    ts_last_three_values: list[tuple[float, float, float]]) -> list[
+    tuple[float, float, float]]:
     cluster = clusters[cluster_index]
     ts_last_values = get_ts_last_values(cluster, ts_last_three_values)
 
@@ -451,6 +476,7 @@ def get_coordinates_dict(path: str, _datetime: dt.datetime, south_flag):
     f.close()
     return d
 
+
 def get_3d_units_description(coordinates_dict):
     _3d_units_description = ''
 
@@ -468,17 +494,18 @@ def get_3d_units_description(coordinates_dict):
 
             _3d_units_description \
                 += (
-                    # f'{first_point_magnetic[0]} {first_point_magnetic[1]} '
-                    # f'{first_point_geographic[3]} '
-                    f'{first_point_geographic[0]:.6f} '
-                    f'{first_point_geographic[1]:.6f} '
-                    # f'{second_point_geographic[0]} {second_point_geographic[1]} '
-                    # f'{third_point_geographic[0]} {third_point_geographic[1]} '
-                    # f'{fourth_point_geographic[0]} {fourth_point_geographic[1]} '
-                    # f'{first_point_geographic[2]} '
-                    f'\n')
+                # f'{first_point_magnetic[0]} {first_point_magnetic[1]} '
+                # f'{first_point_geographic[3]} '
+                f'{first_point_geographic[0]:.6f} '
+                f'{first_point_geographic[1]:.6f} '
+                # f'{second_point_geographic[0]} {second_point_geographic[1]} '
+                # f'{third_point_geographic[0]} {third_point_geographic[1]} '
+                # f'{fourth_point_geographic[0]} {fourth_point_geographic[1]} '
+                # f'{first_point_geographic[2]} '
+                f'\n')
 
     return _3d_units_description
+
 
 def get_data_from_file(path: str, _datetime: dt.datetime, south_flag) -> str:
     coordinates_dict = get_coordinates_dict(path, _datetime, south_flag)
@@ -501,10 +528,12 @@ def do_forecast_manager_iteration():
     second_forecast_filename = os.path.split(second_forecast_file_path)[-1]
     file_datetime = get_datetime_from_str(get_file_datetime(second_forecast_filename))
     data = get_data_from_file(second_forecast_file_path, file_datetime, "south" in second_forecast_filename)
-    second_forecast_file_path_3d = get_second_forecast_file_path_3d(three_last_paths_util)
+    # second_forecast_file_path_3d = get_second_forecast_file_path_3d(three_last_paths_util)
+    # print(f"here: \'{second_forecast_file_path}\'")
+    second_forecast_file_path_3d = get_second_forecast_file_path_3d(second_forecast_file_path)
 
     with open(second_forecast_file_path_3d, 'w') as f:
         f.write(data)
 
 
-# do_forecast_manager_iteration()
+do_forecast_manager_iteration()

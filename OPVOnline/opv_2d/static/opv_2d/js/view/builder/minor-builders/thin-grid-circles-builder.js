@@ -1,4 +1,8 @@
 "use strict";
+/*
+* В данном файле содержится реализация класса для конструирования графического объекта, который
+* отвечает за тонкие круговые линии координатной решетки.
+*/
 class ThinGridCirclesBuilder {
     constructor() {
         this.graphicalComposite = new GraphicalComposite();

@@ -1,4 +1,7 @@
 "use strict";
+/*
+ * В данном файле содержится реализация команды для рисования из паттерна Command.
+ */
 class DrawingCommand {
     constructor(rebuildFlag) {
         this.rebuildFlag = true;

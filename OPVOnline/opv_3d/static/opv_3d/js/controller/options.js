@@ -1,4 +1,7 @@
 "use strict";
+/*
+ * В данном файле содержится класс для хранения настроек пользовательского интерфейса.
+ */
 class Options {
     // public showContinentsFlag: boolean
     // public showCitiesFlag: boolean 

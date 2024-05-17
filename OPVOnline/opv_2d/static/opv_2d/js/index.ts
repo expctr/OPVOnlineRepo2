@@ -159,7 +159,7 @@ window.onload = () => {
 
 	let citiesCheckbox = <HTMLInputElement>document.getElementById('cities-checkbox')
 
-	let extendedFunctionality1Checkbox = <HTMLInputElement>document.getElementById('extended-functionality-1-checkbox')
+	// let extendedFunctionality1Checkbox = <HTMLInputElement>document.getElementById('extended-functionality-1-checkbox')
 
 	northRadio.checked = true
 	nowcastRadio.checked = true
@@ -218,7 +218,7 @@ window.onload = () => {
 		continentsCheckbox,
 		fileNumberRangeInput,
 		citiesCheckbox,
-		extendedFunctionality1Checkbox
+		// extendedFunctionality1Checkbox
 	)
 	model.getFilesNumberAndLastFileData()
 
@@ -257,7 +257,7 @@ window.onload = () => {
 		continentsCheckbox,
 		additionalFileInfoButton,
 		citiesCheckbox,
-		extendedFunctionality1Checkbox
+		// extendedFunctionality1Checkbox
 	)
 	controller.addEventListeners()
 

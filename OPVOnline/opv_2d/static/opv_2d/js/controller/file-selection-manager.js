@@ -1,4 +1,5 @@
 "use strict";
+/* В данном файле содержится реализация класса для управления выбором файлов. */
 class FileSelectionManager {
     constructor(model) {
         this.commands = [];

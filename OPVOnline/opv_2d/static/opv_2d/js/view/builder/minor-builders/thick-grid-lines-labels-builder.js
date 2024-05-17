@@ -1,4 +1,8 @@
 "use strict";
+/*
+* В данном файле содержится реализация класса для конструирования графического объекта, который
+* отвечает надписи толстых прямых линий координатной решетки.
+*/
 class ThickGridLinesLabelsBuilder {
     constructor() {
         this.THICK_GRID_LINES_LABELS_FONT = '60px Arial';

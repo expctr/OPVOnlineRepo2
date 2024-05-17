@@ -1,4 +1,8 @@
 "use strict";
+/*
+ * В данном файле содержится реализация графического объекта, который соответствует
+ * надписи.
+ */
 class Label {
     // private deltaX: number
     // private deltaY: number

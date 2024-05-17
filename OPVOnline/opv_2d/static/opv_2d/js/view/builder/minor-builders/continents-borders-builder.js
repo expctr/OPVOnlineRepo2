@@ -1,4 +1,8 @@
 "use strict";
+/*
+* В данном файле содержится реализация класса для конструирования графического объекта, который
+* отвечает за границы континентов.
+*/
 class ContinentsBordersBuilder {
     constructor() {
         this.CONTINENTS_BORDER_WIDTH = 7;

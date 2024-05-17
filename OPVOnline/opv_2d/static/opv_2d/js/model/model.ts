@@ -150,7 +150,7 @@ class Model {
 
 	private readonly citiesCheckbox: HTMLInputElement
 
-	private readonly extendedFunctionality1Checkbox: HTMLInputElement
+	// private readonly extendedFunctionality1Checkbox: HTMLInputElement
 
 	public cloudinessImageSrc: string | null = null
 
@@ -203,8 +203,7 @@ class Model {
 		denoiseCheckbox: HTMLInputElement,
 		continentsCheckbox: HTMLInputElement,
 		fileNumberRangeInput: HTMLInputElement,
-		citiesCheckbox: HTMLInputElement,
-		extendedFunctionality1Checkbox: HTMLInputElement) {
+		citiesCheckbox: HTMLInputElement) {
 		this.view = view
 		this.currentFileNumberInput = currentFileNumberInput
 		this.filesNumberInput = filesNumberInput
@@ -226,7 +225,7 @@ class Model {
 		this.continentsCheckbox = continentsCheckbox
 		this.fileNumberRangeInput = fileNumberRangeInput
 		this.citiesCheckbox = citiesCheckbox
-		this.extendedFunctionality1Checkbox = extendedFunctionality1Checkbox
+		// this.extendedFunctionality1Checkbox = extendedFunctionality1Checkbox
 	}
 
 	private parseCloudinessCellsGeomagneticCoordinates(cloudinessCellsGeomagneticCoordinatesData: string): void {
@@ -1390,47 +1389,47 @@ class Model {
 		return cities
 	}
 
-	public parseExtendedFunctionalityClass1Array(
-		description: string): ExtendedFunctionalityClass1[] {
-		let extendedFunctionalityClass1Array
-			: ExtendedFunctionalityClass1[] = []
-		let splitDescription = description.split('\n').filter(element => element)
+	// public parseExtendedFunctionalityClass1Array(
+	// 	description: string): ExtendedFunctionalityClass1[] {
+	// 	let extendedFunctionalityClass1Array
+	// 		: ExtendedFunctionalityClass1[] = []
+	// 	let splitDescription = description.split('\n').filter(element => element)
 
-		for (let i = 0; i < splitDescription.length; ++i) {
-			extendedFunctionalityClass1Array
-				.push(ExtendedFunctionalityClass1.parse(
-					splitDescription[i]))
-		}
+	// 	for (let i = 0; i < splitDescription.length; ++i) {
+	// 		extendedFunctionalityClass1Array
+	// 			.push(ExtendedFunctionalityClass1.parse(
+	// 				splitDescription[i]))
+	// 	}
 
-		return extendedFunctionalityClass1Array
-	}
+	// 	return extendedFunctionalityClass1Array
+	// }
 
-	public getExtendedFunctionality1Info(): ExtendedFunctionalityClass1[] | null {
-		if (!this.extendedFunctionality1Checkbox.checked) {
-			return null
-		}
+	// public getExtendedFunctionality1Info(): ExtendedFunctionalityClass1[] | null {
+	// 	if (!this.extendedFunctionality1Checkbox.checked) {
+	// 		return null
+	// 	}
 
-		let description = ''
+	// 	let description = ''
 
-		$.ajax({
-			url: '2d/extended-functionality-1',
-			method: 'get',
-			dataType: 'json',
-			async: false,
-			data: {
-				dateTime: this.datetimeInput.value,
-				hemisphere: (this.northRadio.checked) ? 'north' : 'south'
-			},
-			success: function (response) {
-				description = response.description
-			},
-			error: function (response) {
-				alert('Ошибка при попытке получить данные расширенного функционала первого типа.')
-			},
-		})
+	// 	$.ajax({
+	// 		url: '2d/extended-functionality-1',
+	// 		method: 'get',
+	// 		dataType: 'json',
+	// 		async: false,
+	// 		data: {
+	// 			dateTime: this.datetimeInput.value,
+	// 			hemisphere: (this.northRadio.checked) ? 'north' : 'south'
+	// 		},
+	// 		success: function (response) {
+	// 			description = response.description
+	// 		},
+	// 		error: function (response) {
+	// 			alert('Ошибка при попытке получить данные расширенного функционала первого типа.')
+	// 		},
+	// 	})
 
-		return this.parseExtendedFunctionalityClass1Array(description)
-	}
+	// 	return this.parseExtendedFunctionalityClass1Array(description)
+	// }
 
 
 	public getSecondForecast() {

@@ -1,4 +1,8 @@
 "use strict";
+/*
+* В данном файле содержится реализация класса для конструирования графического объекта, который
+* отвечает за ломаную границу аврорального овала.
+*/
 class BrokenMarginBuilder {
     constructor() {
         this.graphicalComposite = new GraphicalComposite();

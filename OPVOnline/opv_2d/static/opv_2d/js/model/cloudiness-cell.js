@@ -1,4 +1,7 @@
 "use strict";
+/*
+* В данном файле содержится реализация класса, который соответствует клетке с информацией об облачности.
+*/
 class CloudinessCell {
     constructor(geomagneticLatitude, mlt) {
         this.geomagneticLatitude = geomagneticLatitude;

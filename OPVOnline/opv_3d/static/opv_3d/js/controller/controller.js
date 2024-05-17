@@ -1,4 +1,8 @@
 "use strict";
+/*
+ * В данном файле содержится реализация контроллера из паттерна MVC для управления
+ * страницей 3D визуализации.
+ */
 class Controller {
     constructor(model, view) {
         this.marksCheckbox = document.getElementById('marks-checkbox');
@@ -400,6 +404,11 @@ class Controller {
             = (fileType === null || fileType === void 0 ? void 0 : fileType.castType) == CastType.SECOND_FORECAST;
         this.fileNumberRangeInput.disabled
             = (fileType === null || fileType === void 0 ? void 0 : fileType.castType) == CastType.SECOND_FORECAST;
+        this.southRadio.disabled = (fileType === null || fileType === void 0 ? void 0 : fileType.castType) == CastType.SECOND_FORECAST;
+        this.ionsRadio.disabled = (fileType === null || fileType === void 0 ? void 0 : fileType.castType) == CastType.SECOND_FORECAST;
+        this.monoRadio.disabled = (fileType === null || fileType === void 0 ? void 0 : fileType.castType) == CastType.SECOND_FORECAST;
+        this.waveRadio.disabled = (fileType === null || fileType === void 0 ? void 0 : fileType.castType) == CastType.SECOND_FORECAST;
+        this.totalRadio.disabled = (fileType === null || fileType === void 0 ? void 0 : fileType.castType) == CastType.SECOND_FORECAST;
     }
     saveOptions() {
         this.options = new Options(this.datetimeInput.value, this.model.getFileTypeFromGUI(), parseFloat(this.colorIndicatorLimitInput.value), this.showHeatmapCheckbox.checked, this.showMarginCheckBox.checked, this.smoothMarginCheckbox.checked, parseFloat(this.marginLevelInput.value), this.showDayNightCheckbox.checked, 

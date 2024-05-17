@@ -1,4 +1,8 @@
 "use strict";
+/*
+ * В данном файле содержится реализация модели из паттерна MVC для управления страницей
+ * 3D визуализации.
+ */
 class Model {
     constructor(view) {
         this.flag = false;

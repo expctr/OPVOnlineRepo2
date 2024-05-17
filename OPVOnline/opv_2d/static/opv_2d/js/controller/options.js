@@ -1,4 +1,8 @@
 "use strict";
+/*
+* В данном файле содержится реализация класса для хранения настроек пользовательского
+* интерфейса.
+*/
 class Options {
     constructor(datetime, fileType, colorIndicatorLimit, showHeatmapFlag, showMargingFlag, smoothMarginFlag, marginLevel, showDayNightFlag, showCloudinessFlag, denoiseFlag, showContinentsFlag, showCitiesFlag) {
         this.datetime = datetime;

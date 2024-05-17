@@ -1,4 +1,7 @@
 "use strict";
+/*
+ * В данном файле содержится реализация класса, который соответствует точке на сфере.
+ */
 class PointOnShpere {
     constructor(lat, lon) {
         this.lat = 0;
