@@ -536,4 +536,4 @@ def do_forecast_manager_iteration():
         f.write(data)
 
 
-do_forecast_manager_iteration()
+# do_forecast_manager_iteration()

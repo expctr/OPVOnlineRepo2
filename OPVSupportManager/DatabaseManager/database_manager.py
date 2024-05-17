@@ -233,4 +233,4 @@ def do_database_manager_iteration():
     do_files_traversal(OVATION_PRIME_DATA_ROOT)
 
 
-do_database_manager_iteration()
+# do_database_manager_iteration()

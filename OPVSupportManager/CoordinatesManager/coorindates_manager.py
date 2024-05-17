@@ -281,4 +281,4 @@ def do_coordinates_manager_iteration():
     do_source_traversal(OVATION_PRIME_DATA_ROOT)
 
 
-do_coordinates_manager_iteration()
+# do_coordinates_manager_iteration()

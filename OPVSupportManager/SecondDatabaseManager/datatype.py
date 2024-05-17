@@ -3,6 +3,7 @@
 
 from enum import IntEnum
 
+
 class DataType(IntEnum):
     """
     Класс-перечисление с индексами типов файлов, полученных от системы Ovation Prime.
@@ -18,7 +19,7 @@ class DataType(IntEnum):
     NORTH_NOWCAST_TOTAL = 8
     NORTH_NOWCAST_WAVE = 9
     SOUTH_FORECAST_DIFFUSE = 10
-    SOUTH_FORECAST_IONS= 11
+    SOUTH_FORECAST_IONS = 11
     SOUTH_FORECAST_MONO = 12
     SOUTH_FORECAST_TOTAL = 13
     SOUTH_FORECAST_WAVE = 14

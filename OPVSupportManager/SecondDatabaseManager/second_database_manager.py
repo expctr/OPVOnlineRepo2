@@ -237,4 +237,4 @@ def do_second_database_manager_iteration():
     do_files_traversal(SECOND_OVATION_PRIME_DATA_ROOT)
 
 
-do_second_database_manager_iteration()
+# do_second_database_manager_iteration()
